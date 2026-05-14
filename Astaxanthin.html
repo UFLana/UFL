@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ValAsta Astaxanthin Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { background-color: #f0f4f8; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #1a202c; padding-bottom: 50px; }
+        .section-card { background: white; border-radius: 16px; padding: 20px; margin-bottom: 16px; border: 1px solid #e2e8f0; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .chart-wrapper { position: relative; height: 280px; width: 100%; margin: 15px 0; }
+        .mini-chart-wrapper { position: relative; height: 180px; width: 100%; margin: 10px 0; }
+        .audio-btn { background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%); color: white; padding: 16px; border-radius: 12px; font-weight: bold; width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 6px rgba(30, 64, 175, 0.3); cursor: pointer; border: none; transition: transform 0.1s; }
+        .audio-btn:active { transform: scale(0.98); }
+        .icon-circle { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+        .accent-orange { color: #ea580c; }
+        .bg-orange-light { background-color: #fff7ed; }
+        .bg-blue-light { background-color: #eff6ff; }
+    </style>
+</head>
+<body>
+
+<div class="max-w-md mx-auto p-4">
+    <header class="text-center py-6">
+        <h1 class="text-3xl font-black text-blue-900 leading-tight">ValAsta Astaxanthin</h1>
+        <p class="text-gray-600 mt-3 text-lg leading-snug">ValAsta is a high-potency cellular support system designed to maintain energy, strength, and mental clarity as the body ages.</p>
+    </header>
+
+    <!-- Audio Player -->
+    <div class="mb-12">
+        <button id="playAudio" class="audio-btn" data-playing="false">
+            <span id="audioIcon" class="text-xl">▶</span> 
+            <span id="audioText">Listen to an Overview (5 min)</span>
+        </button>
+        <p class="text-center text-sm text-slate-500 mt-4 italic">Tap above to listen to an overview.</p>
+    </div>
+
+    <!-- The 6,000x Comparison -->
+    <div class="section-card border-l-4 border-orange-500">
+        <h2 class="text-xl font-bold text-blue-900 mb-2">The Gold Standard of Strength</h2>
+        <p class="text-gray-600 mb-4">ValAsta is significantly more potent than standard vitamins you may already know.</p>
+        <div class="chart-wrapper">
+            <canvas id="strengthChart"></canvas>
+        </div>
+        <div class="mt-4 p-3 bg-orange-light rounded-lg text-sm text-orange-900">
+            <strong>Key Fact:</strong> While Vitamin C is great, ValAsta is <strong>6,000 times stronger</strong> at neutralizing the "cellular rust" that contributes to aging.
+        </div>
+    </div>
+
+    <div class="space-y-4">
+        <h2 class="text-2xl font-bold text-blue-900 px-2 pt-4">Pillars of Vitality</h2>
+
+        <!-- Heart & Blood Flow -->
+        <div class="section-card">
+            <div class="icon-circle bg-red-100 text-red-600 text-2xl">❤</div>
+            <h3 class="text-lg font-bold">Heart & Blood Flow</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-3">Supports natural blood vessel flexibility and healthy circulation for steady heart energy.</p>
+            <ul class="text-sm space-y-2 text-blue-900 font-medium">
+                <li class="flex items-center gap-2"><span class="text-red-500">✓</span> Supports vessel flexibility</li>
+                <li class="flex items-center gap-2"><span class="text-red-500">✓</span> Encourages heart muscle energy</li>
+                <li class="flex items-center gap-2"><span class="text-red-500">✓</span> Promotes steady stamina</li>
+            </ul>
+        </div>
+
+        <!-- Brain & Memory -->
+        <div class="section-card">
+            <div class="icon-circle bg-blue-100 text-blue-600 text-2xl">🧠</div>
+            <h3 class="text-lg font-bold">Mental Clarity & Memory</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-3">Crosses the brain barrier to provide direct protection for neurons and cognition.</p>
+            <ul class="text-sm space-y-2 text-blue-900 font-medium">
+                <li class="flex items-center gap-2"><span class="text-blue-500">✓</span> Shields delicate brain cells</li>
+                <li class="flex items-center gap-2"><span class="text-blue-500">✓</span> Supports sharp focus</li>
+                <li class="flex items-center gap-2"><span class="text-blue-500">✓</span> Maintains coordination</li>
+            </ul>
+        </div>
+
+        <!-- Mobility & Muscles -->
+        <div class="section-card">
+            <div class="icon-circle bg-green-100 text-green-600 text-2xl">💪</div>
+            <h3 class="text-lg font-bold">Mobility & Muscle Tone</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-3">Targets the cellular "power plants" to reduce fatigue and support independence.</p>
+            <ul class="text-sm space-y-2 text-blue-900 font-medium">
+                <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Reduces leg "heaviness"</li>
+                <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Fluid joint movement</li>
+                <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Faster daily recovery</li>
+            </ul>
+        </div>
+
+        <!-- Appearance & Skin -->
+        <div class="section-card">
+            <div class="icon-circle bg-orange-100 text-orange-600 text-2xl">✨</div>
+            <h3 class="text-lg font-bold">Youthful Appearance</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-3">Protects DNA and skin elasticity from the inside out against environmental stress.</p>
+            <ul class="text-sm space-y-2 text-blue-900 font-medium">
+                <li class="flex items-center gap-2"><span class="text-orange-500">✓</span> Cellular DNA protection</li>
+                <li class="flex items-center gap-2"><span class="text-orange-500">✓</span> Immune system vigilance</li>
+                <li class="flex items-center gap-2"><span class="text-orange-500">✓</span> Skin resilience and glow</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section-card bg-blue-50 border-blue-200 mt-6">
+        <h2 class="text-xl font-bold text-blue-900 mb-2">24-Hour Continuous Protection</h2>
+        <p class="text-sm text-gray-700 leading-relaxed">
+            Most supplements leave the system within hours, causing "spikes" in protection. ValAsta is designed for a steady release, maintaining a plateau of support throughout the day and night.
+        </p>
+        <div class="mini-chart-wrapper">
+            <canvas id="absorptionChart"></canvas>
+        </div>
+        <div class="p-3 bg-white rounded-lg border border-blue-100 text-sm text-blue-900 mt-2">
+            <strong>The Advantage:</strong> Consistent cellular coverage means your heart, brain, and muscles never lose their "bodyguard."
+        </div>
+    </div>
+
+    <!-- Research Findings Section -->
+    <div class="section-card bg-blue-900 text-white mt-8">
+        <h2 class="text-xl font-bold mb-3">Promising Research Findings</h2>
+        <div class="space-y-4 text-sm text-blue-100">
+            <div class="border-b border-blue-800 pb-3">
+                <p class="font-bold text-orange-300">Immune Resilience</p>
+                <p>Studies suggest a significant increase in the activity of "natural killer" cells, which are the body's primary defense against mutated cells and viruses.</p>
+            </div>
+            <div class="border-b border-blue-800 pb-3">
+                <p class="font-bold text-orange-300">Heart Health Markers</p>
+                <p>Clinical trials observed improved blood flow markers and a reduction in oxidative stress levels in patients with long-term cardiovascular concerns.</p>
+            </div>
+            <div>
+                <p class="font-bold text-orange-300">Cognitive Longevity</p>
+                <p>Ongoing research indicates that high-purity Astaxanthin may slow down the markers of cognitive decline by reducing inflammation in the brain's delicate pathways.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="mt-8 px-4 text-center">
+        <h3 class="text-xl font-bold text-blue-900">The Bottom Line</h3>
+        <p class="text-gray-600 mt-2 mb-6">ValAsta provides a 24-hour "shield" for your cells. It doesn't replace your current vitamins; it acts as the <strong>Manager</strong>, making your entire health routine work more effectively.</p>
+    </div>
+</div>
+
+<script>
+const ctx = document.getElementById('strengthChart').getContext('2d');
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [['Vitamin C'], ['CoQ10'], ['ValAsta']],
+        datasets: [{
+            label: 'Antioxidant Strength',
+            data: [1, 800, 6000],
+            backgroundColor: ['#cbd5e1', '#3b82f6', '#ea580c'],
+            borderRadius: 8
+        }]
+    },
+    options: {
+        indexAxis: 'y',
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { display: false }
+        },
+        scales: {
+            x: { display: false, beginAtZero: true },
+            y: { ticks: { font: { size: 14, weight: 'bold' } } }
+        }
+    }
+});
+
+const absCtx = document.getElementById('absorptionChart').getContext('2d');
+new Chart(absCtx, {
+    type: 'line',
+    data: {
+        labels: ['8am', '12pm', '4pm', '8pm', '12am', '4am', '8am'],
+        datasets: [
+            {
+                label: 'ValAsta (Plateau)',
+                data: [40, 85, 90, 88, 86, 84, 82],
+                borderColor: '#ea580c',
+                backgroundColor: 'rgba(234, 88, 12, 0.1)',
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4
+            },
+            {
+                label: 'Others (Spikes)',
+                data: [10, 95, 20, 10, 5, 2, 1],
+                borderColor: '#94a3b8',
+                borderDash: [5, 5],
+                borderWidth: 2,
+                fill: false,
+                tension: 0.4
+            }
+        ]
+    },
+    options: {
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { 
+                display: true,
+                position: 'top',
+                labels: { boxWidth: 10, font: { size: 10 } }
+            }
+        },
+        scales: {
+            x: { grid: { display: false }, ticks: { font: { size: 10 } } },
+            y: { display: false }
+        }
+    }
+});
+
+// 1. Create the audio object with your MP3 URL
+// Replace 'your-audio-file.mp3' with your actual hosted file link
+const podcastAudio = new Audio('https://github.com/UFLana/UFL/raw/refs/heads/main/ValAsta-Astaxanthin.mp3'); 
+
+const audioBtn = document.getElementById('playAudio');
+const audioText = document.getElementById('audioText');
+const audioIcon = document.getElementById('audioIcon');
+
+audioBtn.addEventListener('click', function() {
+    // Resume AudioContext if it's a browser that blocks auto-audio
+    if (window.AudioContext) {
+        const ctx = new AudioContext();
+        if (ctx.state === 'suspended') ctx.resume();
+    }
+
+    if (this.dataset.playing === "true") {
+        // ACTION: Pause the audio
+        podcastAudio.pause();
+        
+        // UI: Reset button
+        audioIcon.innerText = "▶";
+        audioText.innerText = "Listen to Podcast Overview (5 min)";
+        this.dataset.playing = "false";
+    } else {
+        // ACTION: Play the audio
+        podcastAudio.play().catch(error => {
+            console.error("Playback failed:", error);
+            audioText.innerText = "Error: Check Console";
+        });
+
+        // UI: Show playing state
+        audioIcon.innerText = "⏸";
+        audioText.innerText = "Playing Overview...";
+        this.dataset.playing = "true";
+    }
+});
+
+// 2. Automatically reset the button when the song finishes
+podcastAudio.addEventListener('ended', () => {
+    audioIcon.innerText = "▶";
+    audioText.innerText = "Listen to Podcast Overview (5 min)";
+    audioBtn.dataset.playing = "false";
+});
+</script>
+
+</body>
+</html>
